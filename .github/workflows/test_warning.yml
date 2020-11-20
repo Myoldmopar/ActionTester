@@ -1,4 +1,4 @@
-name: CppCheck
+name: WarningTesting
 
 on: [push]
 
@@ -10,3 +10,5 @@ jobs:
     - name: Issue Warning
       run: echo "::warning file=README.md,line=1,col=2::Problem"
  
+    - name: Issue Error
+      run: echo "::error file=app.js,line=10,col=15::Something went wrong"
