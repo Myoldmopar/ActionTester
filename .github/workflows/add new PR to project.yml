@@ -3,10 +3,15 @@ name: Verify Pull Request Labeling
 on:
   pull_request:
     types: [opened]
+
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   check_pr_labels:
+    permissions:
+      repository-projects: write
+      
     runs-on: ubuntu-18.04
     steps:
               
