@@ -1,4 +1,4 @@
-name: Verify Pull Request Labeling
+name: Add New PR to Project For Real
 
 on:
   pull_request:
