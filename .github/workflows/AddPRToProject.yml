@@ -21,8 +21,5 @@ jobs:
       - uses: actions/checkout@v1
       - uses: jwalton/gh-find-current-pr@v1
         id: findPr
-      - run: echo "Your PR is ${PR}"
-        if: success() && steps.findPr.outputs.number
-        env:
-          PR: ${{ steps.findPr.outputs.pr }}
-      - run: echo "I must be on PR # ${PR}" 
+      - run: echo "PR=${{ steps.findPr.outputs.pr }}" >> $GITHUB_ENV
+      - run: echo "I must be on PR # ${{ env.PR }}" 
