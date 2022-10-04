@@ -3,7 +3,7 @@
 # call with the PR number and the project id as 2 command line arguments
 
 PR_NUM=$1
-PROJ_ID=$2
+PROJ_ID=PVT_kwHOAAz3oM4AGYkT
 echo "Using PR Num as ${PR_NUM} and project ID as: ${PROJ_ID}"
 
 CONTENT=`gh pr view $1 --json 'id' --jq '.id'`
@@ -19,3 +19,4 @@ gh api graphql -f query="
     }
   }"
   
+#
