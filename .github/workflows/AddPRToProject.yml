@@ -2,7 +2,8 @@ name: 'Add PR to Project Create card'
 on:
   pull_request_target:
     types: [ opened ]
-
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   create-card:
     runs-on: ubuntu-latest
