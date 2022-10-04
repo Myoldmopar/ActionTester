@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# call with two args: the current PR number, and the projectv2 nodeid, which should be an action SECRET
+# call with the PR number as a command line argument
+# the PROJ_ID environment variable should be set from an ACTION SECRET
 
 CONTENT=`gh pr view $1 --json 'id' --jq '.id'`
+echo "Found PR node iD as: ${CONTENT}"
 
 # Need to get Node ID for the issue or PR to add if we do it this way
 gh api graphql -f query='
   mutation {
-    addProjectV2ItemById(input: {projectId: "$2" contentId: "${CONTENT}"}) {
+    addProjectV2ItemById(input: {projectId: "$PROJ_ID" contentId: "${CONTENT}"}) {
       item {
         id
       }
