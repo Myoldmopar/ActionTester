@@ -14,3 +14,4 @@ jobs:
       - run: echo "PR=${{ steps.findPr.outputs.pr }}" >> $GITHUB_ENV
       - run: echo "I must be on PR ${{ env.PR }}"
       - run: bash add_to_project.sh ${{ env.PR }} ${{ secrets.PROJECT_ID }}
+# adsf
