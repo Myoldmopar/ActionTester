@@ -12,4 +12,4 @@ jobs:
       - uses: jwalton/gh-find-current-pr@v1
         id: findPr
       - run: echo "PR=${{ steps.findPr.outputs.pr }}" >> $GITHUB_ENV
-      - run: bash add_to_project.sh ${{ env.PR }} "$PROJ_ID"
+      - run: bash add_to_project.sh ${{ env.PR }}
