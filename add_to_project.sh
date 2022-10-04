@@ -6,7 +6,7 @@
 CONTENT=`gh pr view $1 --json 'id' --jq '.id'`
 echo "Found PR node ID as: ${CONTENT}"
 echo "Using Project ID as: ${PROJ_ID}"
-
+#
 # Need to get Node ID for the issue or PR to add if we do it this way
 gh api graphql -f query="
   mutation {
