@@ -1,4 +1,4 @@
-name: Verify Pull Request Labeling
+name: Add New PR to Project
 
 on:
   pull_request:
@@ -12,7 +12,7 @@ jobs:
     permissions:
       repository-projects: write
       
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
               
       - name: Add To GitHub projects
