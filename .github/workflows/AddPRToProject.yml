@@ -2,24 +2,14 @@ name: 'Add PR to Project Create card'
 on:
   pull_request_target:
     types: [ opened ]
-
+#
 jobs:
   create-card:
     runs-on: ubuntu-latest
     steps:
-      #- name: Add PR to project board
-      #  uses: actions/github-script@v5
-      #  with:
-      #    github-token: ${{secrets.PROJECT_TOKEN}}
-      #    script: |
-      #      github.rest.projects.createCard({
-      #        column_id: f75ad846,
-      #        content_id: context.payload.pull_request.id,
-      #        content_type: 'PullRequest'
-      #      });
-            
       - uses: actions/checkout@v1
       - uses: jwalton/gh-find-current-pr@v1
         id: findPr
       - run: echo "PR=${{ steps.findPr.outputs.pr }}" >> $GITHUB_ENV
-      - run: echo "I must be on PR # ${{ env.PR }}" 
+      - run: echo "I must be on PR ${{ env.PR }}"
+      - run: bash add_to_project.sh ${{ env.PR }} ${{ secrets.PROJECT_ID }}
