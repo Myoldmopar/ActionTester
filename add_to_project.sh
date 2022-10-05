@@ -12,7 +12,7 @@ echo "Found PR node ID as: ${CONTENT}"
 # Need to get Node ID for the issue or PR to add if we do it this way
 gh api graphql -f query="
   mutation {
-    addProjectV2ItemById(input: {projectId: ${PROJ_ID} contentId: ${CONTENT}}) {
+    addProjectV2ItemById(input: {projectId: \"${PROJ_ID}\" contentId: \"${CONTENT}\"}) {
       item {
         id
       }
