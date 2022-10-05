@@ -18,5 +18,3 @@ gh api graphql -f query="
       }
     }
   }"
-  
-#asdf
