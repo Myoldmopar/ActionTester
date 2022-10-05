@@ -22,5 +22,8 @@ jobs:
         id: findPr
       # adds the variable to the environment so that we can use it in the next step
       - run: echo "PR=${{ steps.findPr.outputs.pr }}" >> $GITHUB_ENV
-      # executes our bash script which could have more logic in it based on the event we are currently handling
+      # with the repo checked out in the current folder, we can execute our custom bash script
+      # this is where we actually interact with the Github API and manipulate the Project
+      # eventually this script could handle all the possible event types
+      # we should also probably pass the project id as an env variable / argument
       - run: bash add_to_project.sh ${{ env.PR }}
