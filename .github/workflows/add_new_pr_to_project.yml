@@ -1,29 +1,10 @@
-name: 'Create Project Card for New PR'
+name: 'Test'
 
-on:
-  pull_request_target:
-    # eventually we'll want to have workflows to manage several possible events on PRs
-    # the full list is here: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
-    types: [ opened ]
-
-env:
-  # this token must have typical repo write access plus full :project access
-  # Create this token with the correct permissions and add it as a repo secret
-  GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
-
+on: [push]
+  
 jobs:
-  create-card:
+  run:
     runs-on: ubuntu-latest
     steps:
-      # check out the repo
-      - uses: actions/checkout@v1
-      # gets the current PR and stores it in a variable
-      - uses: jwalton/gh-find-current-pr@v1
-        id: findPr
-      # adds the variable to the environment so that we can use it in the next step
-      - run: echo "PR=${{ steps.findPr.outputs.pr }}" >> $GITHUB_ENV
-      # with the repo checked out in the current folder, we can execute our custom bash script
-      # this is where we actually interact with the Github API and manipulate the Project
-      # eventually this script could handle all the possible event types
-      # we should also probably pass the project id as an env variable / argument
-      - run: bash add_to_project.sh ${{ env.PR }}
+      - run: python -c 'from platform import version; print(version())'
+      
